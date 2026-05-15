@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PawBakery | เบเกอรี่สำหรับสัตว์เลี้ยง</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+    color:#333;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h2{
+    color:#ff6f91;
+    font-size:30px;
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ff6f91;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+    url('https://cdn.phototourl.com/free/2026-05-15-e437174f-e76c-42d9-8948-885c9dbdea84.png');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-content{
+    color:white;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero-content h1{
+    font-size:80px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:24px;
+    margin-bottom:35px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:15px 38px;
+    background:#ff6f91;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#ff4f7a;
+    transform:translateY(-5px);
+}
+
+/* SECTION */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#777;
+    font-size:18px;
+}
+
+/* ABOUT */
+
+.about-box{
+    background:#fff5f7;
+    padding:50px;
+    border-radius:30px;
+    text-align:center;
+    line-height:1.8;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* PRODUCTS */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+}
+
+.service-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.service-content{
+    padding:25px;
+}
+
+.service-content h3{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.service-content p{
+    color:#666;
+    line-height:1.7;
+}
+
+.price{
+    margin:18px 0;
+    font-size:28px;
+    font-weight:bold;
+    color:#ff6f91;
+}
+
+.order-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:40px;
+    background:#ff6f91;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.order-btn:hover{
+    background:#ff4f7a;
+}
+
+/* MENU IMAGES */
+
+.menu-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.menu-gallery img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:12px 0;
+    font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#ff6f91;
+    color:white;
+    text-align:center;
+    padding:50px 8%;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:52px;
+}
+
+.hero-content p{
+    font-size:18px;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-direction:column;
+    text-align:center;
+}
+
+.section-title h2{
+    font-size:36px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-e437174f-e76c-42d9-8948-885c9dbdea84.png">
+
+<h2>PawBakery</h2>
+
+</div>
+
+<ul>
+
+<li><a href="#about">เกี่ยวกับ</a></li>
+<li><a href="#owner">เจ้าของร้าน</a></li>
+<li><a href="#products">สินค้า</a></li>
+<li><a href="#menu">เมนู</a></li>
+<li><a href="#contact">ติดต่อ</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+PawBakery
+</h1>
+
+<p>
+เบเกอรี่สุขภาพสำหรับสัตว์เลี้ยงแสนรัก
+</p>
+
+<a href="#products" class="hero-btn">
+เลือกซื้อสินค้า
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-title">
+
+<h2>เกี่ยวกับร้าน</h2>
+
+<p>ขนมโฮมเมดสำหรับสุนัขและแมว</p>
+
+</div>
+
+<div class="about-box">
+
+<p>
+PawBakery คือร้านเบเกอรี่สำหรับสัตว์เลี้ยง
+ที่เน้นวัตถุดิบคุณภาพดี ปลอดภัย และดีต่อสุขภาพ
+เหมาะสำหรับสุนัขและแมวทุกวัย
+ผลิตสดใหม่ทุกวันด้วยความใส่ใจเหมือนทำให้คนในครอบครัว
+</p>
+
+</div>
+
+</section>
+
+<!-- OWNER -->
+
+<section id="owner">
+
+<div class="section-title">
+
+<h2>เจ้าของร้าน</h2>
+
+<p>ผู้ก่อตั้งแบรนด์ PawBakery</p>
+
+</div>
+
+<div class="about-box">
+
+<h3 style="font-size:32px; color:#ff6f91; margin-bottom:20px;">
+ขวัญชนก ทองดี
+</h3>
+
+<p style="font-size:18px; color:#666;">
+รหัสนักศึกษา 6650101061
+</p>
+
+<br>
+
+<p>
+“เพราะสัตว์เลี้ยงคือสมาชิกในครอบครัว”
+</p>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+<div class="section-title">
+
+<h2>สินค้าขายดี</h2>
+
+<p>เบเกอรี่พรีเมียมสำหรับสัตว์เลี้ยง</p>
+
+</div>
+
+<div class="services">
+
+<!-- PRODUCT 1 -->
+
+<div class="service-card">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-a64e51da-9d30-4ced-87be-3a0e37879938.jpg">
+
+<div class="service-content">
+
+<h3>Liver Lava</h3>
+
+<p>
+เค้กลาวาตับสุดพรีเมียมสำหรับสัตว์เลี้ยง
+หอม อร่อย และดีต่อสุขภาพ
+</p>
+
+<div class="price">149฿</div>
+
+<button class="order-btn">
+สั่งซื้อสินค้า
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 2 -->
+
+<div class="service-card">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-dacb666c-6700-4c49-806e-e1e01b6b64f7.jpg">
+
+<div class="service-content">
+
+<h3>Chicken Treasure Cake</h3>
+
+<p>
+เค้กอกไก่สุดน่ารัก
+เหมาะสำหรับวันพิเศษของสัตว์เลี้ยง
+</p>
+
+<div class="price">299฿</div>
+
+<button class="order-btn">
+สั่งซื้อสินค้า
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 3 -->
+
+<div class="service-card">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-e0fd22c6-151a-4e64-a63f-2b859721a138.jpg">
+
+<div class="service-content">
+
+<h3>เค้กอกไก่ซูวี ครีมชีส</h3>
+
+<p>
+เค้กสูตรพิเศษจากอกไก่ซูวี
+พร้อมครีมชีสสำหรับสัตว์เลี้ยง
+</p>
+
+<div class="price">349฿</div>
+
+<button class="order-btn">
+สั่งซื้อสินค้า
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 4 -->
+
+<div class="service-card">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-12074a84-0365-4334-a6dd-532f250d5d90.jpg">
+
+<div class="service-content">
+
+<h3>มาการองรวมรส</h3>
+
+<p>
+มาการองสำหรับสัตว์ขนฟู
+สีสันน่ารักและปลอดภัย
+</p>
+
+<div class="price">149฿</div>
+
+<button class="order-btn">
+สั่งซื้อสินค้า
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MENU -->
+
+<section id="menu">
+
+<div class="section-title">
+
+<h2>เมนูทั้งหมด</h2>
+
+<p>ตัวอย่างเมนูและสินค้าภายในร้าน</p>
+
+</div>
+
+<div class="menu-gallery">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-0da1bfc8-ccb0-42f0-91b9-96b0f0644959.jpg">
+
+<img src="https://cdn.phototourl.com/free/2026-05-15-97ecf5f8-c375-4d0b-955b-bc110ec39675.jpg">
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<div class="section-title">
+
+<h2>ติดต่อเรา</h2>
+
+<p>ติดตามข่าวสารและโปรโมชั่น</p>
+
+</div>
+
+<p>Instagram : @pawbakery</p>
+<p>Facebook : PawBakery Thailand</p>
+<p>Line : @pawbakery</p>
+<p>Email : pawbakery@gmail.com</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>PawBakery 🐾</h2>
+
+<p>
+เบเกอรี่สุขภาพสำหรับสัตว์เลี้ยง
+</p>
+
+<br>
+
+<p>
+© 2026 PawBakery Premium Website
+</p>
+
+</footer>
+
+</body>
+</html>
